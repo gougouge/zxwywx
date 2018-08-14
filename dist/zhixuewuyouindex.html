@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
+		<title>智学无忧登录</title>
+		<link rel="stylesheet" type="text/css" href="style/weui.css" />
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_787832_musvysdz3eh.css" />
+	</head>
+	<style type="text/css">
+		.zxwusub {
+			width: 100%;
+			height: 100%;
+			background-color: #FBF9FE;
+			margin-top: 47px;
+		}
+		
+		.zxlogo {
+			width: 100px;
+			height: 100px;
+			margin: auto;
+			padding: 30px 0;
+		}
+		
+		.zxlogo img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 50%;
+			box-shadow: 0 0 17px 2px #80cbc4;
+		}
+		
+		#tels i {
+			display: none;
+		}
+		
+		input::-webkit-input-placeholder {
+			text-align: center;
+		}
+		
+		#pass i {
+			display: none;
+		}
+		
+		.flexs {
+			text-align: center;
+			height: 50px;
+			line-height: 50px;
+			background-color: #FFFFFF;
+		}
+		
+		.flexs a {
+			color: #000000;
+		}
+		
+		.tabbar01 {
+			display: none;
+			margin-top: 47px;
+		}
+	</style>
+
+	<body ontouchstart="">
+		<!--头部-->
+		<div class="weui-navbar">
+			<div class="weui-cell" style="width: 100%;">
+				<div class="weui-cell__hd">
+					<i class="iconfont icon-cuowu"></i>
+				</div>
+				<div class="weui-cell__bd" style="text-align: center;">
+					<p>智学无忧教育系统</p>
+				</div>
+				<div class="weui-cell__ft">
+					<i class="iconfont icon-gengduo"></i>
+				</div>
+			</div>
+		</div>
+		<div class="zxwusub">
+			<!--智学无忧logo-->
+			<div class="zxlogo">
+				<img src="example/images/0001.png" />
+			</div>
+			<!--学员登录-->
+			<div class="weui-cells__title" style="text-align: center; color: #008080;">
+				<h1>学员登录<h1></div>
+			<!--手机号-->
+			<div class="weui-cell" style="padding: 16px 15px; background-color: #FFFFFF;">
+			    <div class="weui-cell__hd">
+				     <i class="iconfont icon-denglu1"></i>
+			    </div>
+			    <div class="weui-cell__bd">
+			    	<input id="telsa" class="weui-input" value="" style="padding: 0;" type="tel" placeholder="请输入手机号或email"/>
+			    </div>
+			    <div id="tels" class="weui-cell__ft">
+			    	<i class="weui-icon-clear cleals"></i>
+			    	<i class="weui-icon-success"></i>
+			    	<i class="weui-icon-warn"></i>
+			    </div>
+			</div>
+			<!--密码框-->
+		    <div class="weui-cell" style="padding: 16px 15px;  background-color: #FFFFFF;">
+			    <div class="weui-cell__hd">
+				     <i class="iconfont icon-denglu1"></i>
+			    </div>
+			    <div class="weui-cell__bd">
+			    	<input id="passl" class="weui-input" value="" style="padding: 0px; " type="password" placeholder="请输入6位数以上密码"/>
+			    </div>
+			    <div id="pass" class="weui-cell__ft">
+			    	<i class="weui-icon-clear clealsa"></i>
+			    	<i class="weui-icon-success"></i>
+			    	<i class="weui-icon-warn"></i>
+			    </div>
+			</div>
+			<!--记住密码-->
+			<div class="weui-cells weui-cells_from">
+				<div class="weui-cell weui-cell_switch">
+					<div class="weui-cell__bd">
+						记住密码
+					</div>
+					<div class="weui-cell__ft">
+						<input class="weui-switch" type="checkbox"/>
+					</div>
+				</div>
+			</div>
+			<button id="btnb" class="weui-btn" style="background-color: #008080;">登录</button>
+			<div class="weui-flex" style="border-bottom: #F7F7FA solid 1px;">
+				<div class="weui-flex__item flexs" ><div class="placeholder"><a href="zxwyitregister.html">立即注册</a></div></div>
+				<div class="weui-flex__item flexs" ><div class="placeholder"><a href="wangjimima.html">忘记密码？</a></div></div>
+			</div>
+			
+		</div>
+		<!--下导航-->
+		<div class="weui-tab__panel">
+				<div class="tabbar01">
+					签到
+				</div>
+				<div class="tabbar01">单词</div>
+				<div class="tabbar01">上机</div>
+				<div class="tabbar01">测试</div>
+	    </div>
+		<div class="weui-tabbar">
+				<a href="javascrpt:;" class="weui-tabbar__item weui-tabbar__item_on daohang">
+					<i class="weui-tabbar__icon iconfont icon-qiandao"></i>
+					<p class="weui-tabbar__label">签到</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item daohang">
+					<i class="weui-tabbar__icon iconfont icon-danci"></i>
+					<p class="weui-tabbar__label">单词</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item daohang">
+					<i class="weui-tabbar__icon iconfont icon-shangjitongji"></i>
+					<p class="weui-tabbar__label">上机</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item daohang">
+					<i class="weui-tabbar__icon iconfont icon-huabanfuben"></i>
+					<p class="weui-tabbar__label">测试</p>
+				</a>
+				<a href="javascript:;" class="weui-tabbar__item dhgengduo">
+					<i class="weui-tabbar__icon iconfont icon-gengduo"></i>
+					<p class="weui-tabbar__label">更多</p>
+				</a>
+		</div>
+	    <!--签到地理位置-->
+		<div id="dialogs">
+			     <div class="js_dialog" id="androidDialog1" style="display: none;">
+						 <div class="weui-mask"></div>
+						 <div class="weui-dialog weui-skin_android">
+						 	<div class="weui-dialog_hd"><strong class="weui-dialog__title">地理位置授权</strong></div>
+						 	<div class="weui-dialog__bd">
+						 		允许http：/zxwyit.com访问你当前的地理位置信息
+						 	</div>
+						 	<div class="weui-dialog__ft">
+						 		<a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+						 		<a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+						 	</div>
+						 </div>
+				</div>
+		</div>
+		<!--更多弹出式菜单-->
+		<div>
+			<div class="weui-mask" id="tanchuMask" style="display: none;"></div>
+			<div class="weui-actionsheet" id="tanchuActionsheet">
+			    <div class="weui-actionsheet__menu" >
+				    <div class="weui-actionsheet__cell">
+					     <i class="iconfont icon-dangan1" style="color: #768F9B;"></i> 档案录入
+				    </div>
+				    <div class="weui-actionsheet__cell">
+					     <i class="iconfont icon-qingjiashenqing" style="color: #FFC8B7;"></i> 请假申请
+				    </div>
+				    <div class="weui-actionsheet__cell">
+					     <i class="iconfont icon-paihangbang-copy" style="color: #DAA520;"></i> 排行榜
+				    </div>
+				    <div class="weui-actionsheet__cell">
+					    <i class="iconfont icon-shezhi"></i> 设置
+				   </div>
+			    </div>
+			    <div class="weui-actionsheet__action">
+				    <div class="weui-actionsheet__cell" id="tanchuActionsheetCancel">取消</div>
+			    </div>
+			</div>
+		</div>
+		<script src="example/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//手机号码的输入
+			$(function(){
+				var telsrge=/^[0-9]{11}$/;
+				var emlrge=/^[1-9a-zA-Z]+@[0-9a-zA-Z]{2,3}.[0-9a-zA-Z]{2,6}$/;
+				$("#telsa").on("focus",function(){
+					$("#tels").children("i").eq(0).show().siblings().hide();
+					$("#telsa").attr("placeholder","")
+					$("#tels .cleals").on("click",function(){
+						$("#telsa").val("");
+					})
+				})
+				$("#telsa").on("blur",function(){
+					var inpval=$(this).val();
+					if(inpval==""||inpval==null){
+						$("#tels").children("i").eq(2).show().siblings().hide();
+						$("#telsa").attr("placeholder","请输入手机号或email")
+					}else if(!telsrge.test(inpval)&&!emlrge.test(inpval)) {
+						$("#tels").children("i").eq(0).show().siblings().hide();
+					}else{
+						$("#tels").children("i").eq(1).show().siblings().hide();
+					}
+					
+				})
+			})
+			//密码
+			$(function(){
+				var mirge=/^[0-9a-zA-Z]{6,}$/;
+				$("#passl").on("focus",function(){
+					$("#pass").children("i").eq(0).show().siblings().hide();
+					$("#passl").attr("placeholder","")
+					$("#pass .clealsa").on("click",function(){
+						$("#passl").val("");
+					})
+				})
+				$("#passl").on("blur",function(){
+					var ipval=$(this).val();
+					if (ipval==""||ipval==null) {
+						$("#pass").children("i").eq(2).show().siblings().hide();
+						$("#passl").attr("placeholder","请输入6位数以上密码")
+					}else if(!mirge.test(ipval)){
+						$("#pass").children("i").eq(0).show().siblings().hide();
+					}else{
+						$("#pass").children("i").eq(1).show().siblings().hide();
+					}
+				})
+			})
+//			登录按钮
+        $(function(){
+        	$("#btnb").on("click",function(){
+        		var num=$("#telsa").val();
+        		var pas=$("#passl").val();
+        		var sjh=sessionStorage.getItem("nember");
+        		var emls=sessionStorage.getItem("email");
+        		var passw=sessionStorage.getItem("pass");
+        		if ((num==sjh||num==emls)&&pas==passw) {
+        			alert("登录成功");
+        		}else{
+        			$("#tels").children("i").eq(0).show().siblings().hide();
+        			$("#pass").children("i").eq(0).show().siblings().hide();
+        			$("#pass").children("i").eq(2).show();
+        			$("#tels").children("i").eq(2).show();
+        		}
+        	})
+        })
+//		   下导航
+        $(function(){
+             	$(".daohang").on("click",function(){
+             		$(".zxwusub").hide();
+             		var index=$(this).index();
+             		$(".tabbar01").eq(index).show().siblings().hide();
+             		$(this).children("p").css("color","green");
+             		$(this).siblings().children("p").css("color","#999999")
+             	})
+             	var  $androidDialog1 = $('#androidDialog1');
+             	$('#dialogs').on('click', '.weui-dialog__btn', function(){
+                         $(this).parents('.js_dialog').fadeOut(200);
+                    });
+
+             	 $('.daohang').first().on('click', function(){
+                         $androidDialog1.fadeIn(200);
+                   });
+             })
+		//更多弹出式菜单
+		$(function(){
+			function hides(){
+				$("#tanchuActionsheet").removeClass("weui-actionsheet_toggle");
+				$("#tanchuMask").fadeOut(200);
+			}
+			$("#tanchuMask").on("click",hides);
+			$("#tanchuActionsheetCancel").on("click",hides);
+			$(".dhgengduo").last().on("click",function(){
+				$("#tanchuActionsheet").addClass("weui-actionsheet_toggle");
+				$("#tanchuMask").fadeIn(200);
+			})
+		})
+		</script>
+	</body>
+</html>

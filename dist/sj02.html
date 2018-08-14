@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
+		<title>通过手机号</title>
+		<link rel="stylesheet" type="text/css" href="style/weui.css" />
+	</head>
+	<style type="text/css">
+		.weui-toast{
+			display: none;
+		}
+		#yanzs i{
+			display: none;
+		}
+		#yanzs .weui-icon-warn{
+			display: inline;
+		}
+		#yanzl{
+			color: red;
+		}
+		#xpass i{
+			display: none;
+		}
+		#xpass .weui-icon-warn{
+			display: inline;
+		}
+		#xpassll{
+			color: red;
+		}
+		#qpass i{
+			display: none;
+		}
+	</style>
+	<body ontouchstart="">
+		<!--头部-->
+		<div class="weui-cell" style="background-color: #35495E; color: white;">
+			<div class="weui-cell__hd">
+				<a href="sj01.html" style="color: #D1D1D1;">&lt;返回</a>
+			</div>
+			<div class="weui-cell__bd" style="text-align:center;">
+				通过手机号
+			</div>
+		</div>
+		<div class="weui-cells__title" style="text-align: center;">
+				验证码发送到你手机。
+		</div>
+		<!--已发送-->
+		<div class="weui-toast weui-toast_forbidden">
+			<i class="weui-icon-success-no-circle weui-icon_toast" style="font-size: 40px;"></i>
+			<p class="weui-toast__content">已发送</p>
+		</div>
+		<!--验证码-->
+		<div class="weui-cells weui-cells_form" style="margin: 0;">
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label class="weui-label" id="yanzl">验证码：</label></div>
+				<div class="weui-cell__bd">
+					<input id="yanz" class="weui-input" type="text" placeholder="请输入验证码" maxlength="6"/>
+				</div>
+				<div class="weui-cell__ft" id="yanzs">
+					<i class="weui-icon-clear cleals"></i>
+					<i class="weui-icon-success"></i>
+					<i class="weui-icon-warn"></i>
+				</div>
+			</div>
+		</div>
+		<!--新密码-->
+			<div class="weui-cells weui-cells_form" style="margin: 0;">
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label class="weui-label" id="xpassll">新密码：</label></div>
+				<div class="weui-cell__bd">
+					<input id="xpassl" class="weui-input" type="password" placeholder="请输入新密码" />
+				</div>
+				<div class="weui-cell__ft" id="xpass">
+					<i class="weui-icon-clear cleals"></i>
+					<i class="weui-icon-success"></i>
+					<i class="weui-icon-warn"></i>
+				</div>
+			</div>
+		</div>
+		<!--确认新密码-->
+		<div class="weui-cells weui-cells_form" style="margin: 0;">
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label class="weui-label" id="qpassll">新密码确认：</label></div>
+				<div class="weui-cell__bd">
+					<input id="qpassl" class="weui-input" type="password" placeholder="再次输入新密码" />
+				</div>
+				<div class="weui-cell__ft" id="qpass">
+					<i class="weui-icon-clear cleals"></i>
+					<i class="weui-icon-success"></i>
+					<i class="weui-icon-warn"></i>
+				</div>
+			</div>
+		</div>
+		<button id="btn02" class="weui-btn weui-btn_primary">确认</button>
+		<script src="example/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var count1,count2,count3;
+			$(function(){
+				$(".weui-toast").show();
+				setTimeout(function(){
+					$(".weui-toast").hide();
+				},1500)
+			})
+//			验证码
+            var yanza=/^[0-9]{6}$/;
+            $("#yanz").on("focus", function() {
+					$("#yanzs").children("i").eq(0).show();
+					$("#yanzs").children("i").eq(2).show();
+					$("#yanzs").children("i").eq(1).hide();
+					$("#yanzl").css("color", "red");
+					$("#yanz").css("color", "red");
+					$("#yanz").attr("placeholder", "")
+					$("#yanzs .cleals").on("click", function() {
+					       $("#yanz").val("");
+					})
+				})
+             $("#yanz").on("blur",function(){
+             	var inpval=$("#yanz").val();
+            	count1=0;
+            	if (!yanza.test(inpval)) {
+            		    $("#yanzs").children("i").eq(0).show();
+						$("#yanzs").children("i").eq(2).show();
+						$("#yanzs").children("i").eq(1).hide();
+						$("#yanz").attr("placeholder", "输入验证码");
+            	}else{
+            		    $("#yanzs").children("i").eq(1).show().siblings().hide();
+						$("#yanzl").css("color", "#757575");
+						$("#yanz").css("color", "#757575");
+						count1=1;
+            	        
+            	}
+            })
+//           新密码
+             var ps = /^[0-9a-zA-Z]{6,}$/;
+				$("#xpassl").on("focus", function() {
+					$("#xpass").children("i").eq(0).show();
+					$("#xpass").children("i").eq(2).show();
+					$("#xpass").children("i").eq(1).hide();
+					$("#xpassl").attr("placeholder", "");
+					$("#xpassll").css("color", "red");
+					$("#xpassl").css("color", "red");
+					$("#xpass .cleals").on("click", function() {
+						$("#xpassl").val("");
+					})
+				})
+
+				function mima() {
+					var ipval = $("#xpassl").val();
+					count2=0
+					if(!ps.test(ipval)) {
+						$("#xpass").children("i").eq(0).show();
+						$("#xpass").children("i").eq(2).show();
+						$("#xpass").children("i").eq(1).hide();
+						$("#xpassl").attr("placeholder", "请输入新密码");
+					} else {
+						$("#xpass").children("i").eq(1).show().siblings().hide();
+						$("#xpassll").css("color", "#757575");
+						$("#xpassl").css("color", "#757575");
+						count2=1;
+					}
+				}
+				$("#xpassl").on("blur", mima);
+				
+//				确认密码
+                $("#qpassl").on("focus", function() {
+					$("#qpass").children("i").eq(0).show();
+					$("#qpass").children("i").eq(2).show();
+					$("#qpass").children("i").eq(1).hide();
+					$("#qpassl").attr("placeholder", "");
+					$("#qpassll").css("color", "red");
+					$("#qpassl").css("color", "red");
+					$("#qpass .cleals").on("click", function() {
+						$("#qpassl").val("");
+					})
+				})
+                function qmima() {
+					var xpa=$("#xpassl").val();
+               	    var qpa=$("#qpassl").val();
+               	    count3=0;
+					if(xpa!=qpa) {
+						$("#qpass").children("i").eq(0).show();
+						$("#qpass").children("i").eq(2).show();
+						$("#qpass").children("i").eq(1).hide();
+						$("#qpassl").attr("placeholder", "请输入新密码");
+					} else {
+						$("#qpass").children("i").eq(1).show().siblings().hide();
+						$("#qpassll").css("color", "#757575");
+						$("#qpassl").css("color", "#757575");
+						count3=1;
+						sessionStorage.setItem("pass",xpa);
+					}
+				}
+				$("#qpassl").on("blur", qmima);
+//				确认点击事件
+				$("#btn02").on("click",function(){
+					if (count1==1&&count2==1&&count3==1) {
+						open("zhixuewuyouindex.html","_self");
+					}
+				})
+		</script>
+	</body>
+</html>

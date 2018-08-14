@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
+		<title>通过email</title>
+		<link rel="stylesheet" type="text/css" href="style/weui.css" />
+	</head>
+	<style type="text/css">
+		#mels i{
+			display: none;
+		}
+		#yans i{
+			display: none;
+		}
+		.weui-toast{
+			display: none;
+		}
+	</style>
+	<body ontouchstart="">
+		<!--头部-->
+		<div class="weui-cell" style="background-color: #35495E; color: white;">
+			<div class="weui-cell__hd">
+				<a href="wangjimima.html" style="color: #D1D1D1;">&lt;返回</a>
+			</div>
+			<div class="weui-cell__bd" style="text-align:center;">
+				通过email
+			</div>
+		</div>
+		<div class="weui-cells__title" style="text-align: center;">
+				该邮箱用于确认您的身份，以确保您的安全。
+		</div>
+		<!--邮箱-->
+		<div class="weui-cells weui-cells_form" style="margin: 0;">
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label class="weui-label" id="mell">邮箱：</label></div>
+				<div class="weui-cell__bd">
+					<input id="mel" class="weui-input" type="text" placeholder="请输入登录邮箱" />
+				</div>
+				<div class="weui-cell__ft" id="mels">
+					<i class="weui-icon-clear cleals"></i>
+					<i class="weui-icon-success"></i>
+					<i class="weui-icon-warn"></i>
+				</div>
+			</div>
+		</div>
+		<!--验证码-->
+		<div class="weui-cells weui-cells_form" style="margin: 0;">
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<label class="weui-label" id="yanl">随机码：</label>
+				</div>
+				<div class="weui-cell__bd">
+					<input id="yan" class="weui-input" type="text" placeholder="输入右图的随机码"/>
+				</div>
+				<div class="weui-cell__ft" id="yans">
+					<i class="weui-icon-clear cleals"></i>
+					<i class="weui-icon-success"></i>
+					<i class="weui-icon-warn"></i>
+					<img id="imgs" src="img/yan01.jpg" style="vertical-align: middle;"/>
+				</div>
+			</div>
+		</div>
+		<button id="btn01" class="weui-btn weui-btn_primary">下一步</button>
+		<div class="weui-toast weui-toast_forbidden" style="color: #E64340;">
+			<i class="weui-icon-warn weui-icon_toast" style="font-size: 40px;"></i>
+			<p class="weui-toast__content">请输入正确的邮箱格式</p>
+		</div>
+		<script src="example/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//邮箱
+			var count1,count2;
+				$("#mel").on("focus", function() {
+					$("#mels").children("i").eq(0).show();
+					$("#mels").children("i").eq(2).show();
+					$("#mels").children("i").eq(1).hide();
+					$("#mell").css("color", "red");
+					$("#mel").css("color", "red");
+					$("#mel").attr("placeholder", "")
+					$("#mels .cleals").on("click", function() {
+					      $("#mel").val("");
+					})
+				})
+				function eml() {
+					count1=0;
+					var emails=sessionStorage.getItem("email");
+					var inpval = $(this).val();
+					if(inpval!=emails) {
+						$("#mels").children("i").eq(0).show();
+						$("#mels").children("i").eq(2).show();
+						$("#mels").children("i").eq(1).hide();
+						$("#mel").attr("placeholder", "请输入登录邮箱");
+
+					} else {
+						$("#mels").children("i").eq(1).show().siblings().hide();
+						$("#mell").css("color", "#757575");
+						$("#mel").css("color", "#757575");
+						count1=1;
+					}
+				}
+				$("#mel").on("blur", eml);
+           //验证码
+            var arr=new Array();
+            arr=["n042z","6h24t","02n0z","j68r8"];
+            var cou=1;
+//          换图片
+            $("#imgs").on("click",function(){
+            	cou++;
+            	if (cou==5) {
+            		cou=1;
+            	}
+                $(this).attr("src","img/yan0"+cou+".jpg");
+            })
+            $("#yan").on("focus", function() {
+					$("#yans").children("i").eq(0).show();
+					$("#yans").children("i").eq(2).show();
+					$("#yans").children("i").eq(1).hide();
+					$("#yanl").css("color", "red");
+					$("#yan").css("color", "red");
+					$("#yan").attr("placeholder", "")
+					$("#yans .cleals").on("click", function() {
+					       $("#yan").val("");
+					})
+				})
+            $("#yan").on("blur",function(){
+            	count2=0;
+            	var yanvals = $(this).val().toLocaleLowerCase();
+            	if (yanvals!=arr[cou-1]) {
+            		    $("#yans").children("i").eq(0).show();
+						$("#yans").children("i").eq(2).show();
+						$("#yans").children("i").eq(1).hide();
+						$("#yan").attr("placeholder", "输入右图的随机码");
+            	}else{
+            		    $("#yans").children("i").eq(1).show().siblings().hide();
+						$("#yanl").css("color", "#757575");
+						$("#yan").css("color", "#757575");
+            	        count2=1;
+            	}
+            })
+//          按钮
+            $("#btn01").on("click",function(){
+            	if (count1==1&&count2==1) {
+            		open("yx02.html","_self");
+            	}else{
+            		$(".weui-toast").show();
+            		setTimeout(function(){
+            			$(".weui-toast").hide();
+            		},3000);
+            	}
+            })
+		</script>
+	</body>
+</html>
